@@ -1,0 +1,55 @@
+server:
+  error:
+    include-stacktrace: never
+  port: 8082
+
+spring:
+  application:
+    name: cf-msa-todo
+  profiles:
+    active: local
+
+---
+spring:
+  profiles: dev
+
+  cloud:
+    config:
+      uri: http://msa-config.cf.intl
+
+---
+spring:
+  profiles: local
+
+  cloud:
+    config:
+      enabled: false
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+#  h2:
+#    console:
+#      enabled: true
+#      settings:
+#        web-allow-others: true
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3307/todo?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
+    username: todo
+    password: koscom
+
+#  datasource:
+#    driver-class-name: org.h2.Driver
+#    url: jdbc:h2:mem:todo
+#    username: todo
+#    password: koscom
+
+security:
+  swagger:
+    enabled: true
+  oauth2:
+    jwt:
+      signkey: jmworksJwtSecret

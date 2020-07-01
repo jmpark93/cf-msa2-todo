@@ -1,0 +1,16 @@
+---
+applications:
+  - name: cf-msa-todo
+    memory: 1G
+    instances: 1
+    buildpacks:
+      - java_buildpack
+    path: ./build/libs/todoapi-0.0.1-SNAPSHOT.jar
+    env:
+      JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+}}'
+      SPRING_PROFILES_ACTIVE: dev
+    services:
+      - msa-todo
+    routes:
+      - route: msa-todo.kpaasta.io
+      - route: msa-todo.cf.intl
