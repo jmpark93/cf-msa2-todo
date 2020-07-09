@@ -5,7 +5,7 @@ server:
 
 spring:
   application:
-    name: cf-msa-todo
+    name: cf-msa2-todo
   profiles:
     active: local
 
