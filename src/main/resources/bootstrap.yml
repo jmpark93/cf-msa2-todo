@@ -21,19 +21,23 @@ spring:
 spring:
   profiles: local
 
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: adminSecret
+
   cloud:
     config:
       enabled: false
+    stream:
+      bindings:
+        input:
+          destination: msa2.mgmt
 
   jpa:
     hibernate:
       ddl-auto: update
-
-#  h2:
-#    console:
-#      enabled: true
-#      settings:
-#        web-allow-others: true
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -41,6 +45,12 @@ spring:
     username: todo
     password: koscom
 
+#  h2:
+#    console:
+#      enabled: true
+#      settings:
+#        web-allow-others: true
+#
 #  datasource:
 #    driver-class-name: org.h2.Driver
 #    url: jdbc:h2:mem:todo
