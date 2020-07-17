@@ -1,6 +1,6 @@
 ---
 applications:
-  - name: cf-msa-todo
+  - name: cf-msa2-todo
     memory: 1G
     instances: 1
     buildpacks:
@@ -10,7 +10,6 @@ applications:
       JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+}}'
       SPRING_PROFILES_ACTIVE: dev
     services:
-      - msa-todo
+      - msa2-todo
     routes:
-      - route: msa-todo.kpaasta.io
-      - route: msa-todo.cf.intl
+      - route: msa2-todo.cf.intl
