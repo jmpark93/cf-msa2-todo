@@ -1,5 +1,7 @@
 package com.jmworks.todoapi.domain;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -7,6 +9,8 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Date;
 
+@Getter
+@Setter
 @Entity
 public class Todo {
 
@@ -19,55 +23,20 @@ public class Todo {
 
     private String todoItem;
 
+    private String memo;
+
     @Column(columnDefinition = "boolean default false")
-    private boolean isDone;
+    private Boolean isDone;
+
+    @Column(columnDefinition = "boolean default false")
+    private Boolean isImportant;
+
+    @Column(columnDefinition = "boolean default false")
+    private Boolean isToday;
 
     @CreationTimestamp
     private LocalDateTime createdTimeAt;
     @UpdateTimestamp
     private LocalDateTime updateTimeAt;
 
-    public Long getId() {
-        return id;
-    }
-
-    public LocalDateTime getCreatedTimeAt() {
-        return createdTimeAt;
-    }
-
-    public void setCreatedTimeAt(LocalDateTime createdTimeAt) {
-        this.createdTimeAt = createdTimeAt;
-    }
-
-    public LocalDateTime getUpdateTimeAt() {
-        return updateTimeAt;
-    }
-
-    public void setUpdateTimeAt(LocalDateTime updateTimeAt) {
-        this.updateTimeAt = updateTimeAt;
-    }
-
-    public String getTodoItem() {
-        return todoItem;
-    }
-
-    public void setTodoItem(String todoItem) {
-        this.todoItem = todoItem;
-    }
-
-    public boolean getIsDone() {
-        return isDone;
-    }
-
-    public void setIsDone(boolean isDone) {
-        this.isDone = isDone;
-    }
-
-    public Long getUserID() {
-        return userID;
-    }
-
-    public void setUserID(Long userID) {
-        this.userID = userID;
-    }
 }

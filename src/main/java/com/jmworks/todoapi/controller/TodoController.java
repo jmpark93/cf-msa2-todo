@@ -1,5 +1,6 @@
 package com.jmworks.todoapi.controller;
 
+import com.jmworks.todoapi.domain.Todo;
 import com.jmworks.todoapi.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.RepositoryRestController;
