@@ -24,6 +24,17 @@ public interface TodoRepository extends PagingAndSortingRepository<Todo, Long> {
     @Transactional
     void deleteAllByIsDoneIsTrueAndUserID(@Param("userID") Long userID);
 
+    @Transactional
+    void deleteAllByIsTodayIsTrueAndUserID(@Param("userID") Long userID);
+
+    @Transactional
+    void deleteAllByIsDoneIsTrueAndIsTodayIsTrueAndUserID(@Param("userID") Long userID);
+
+    @Transactional
+    void deleteAllByIsImportantIsTrueAndUserID(@Param("userID") Long userID);
+
+    @Transactional
+    void deleteAllByIsDoneIsTrueAndIsImportantIsTrueAndUserID(@Param("userID") Long userID);
 
 //    @Override
 //    @RestResource(exported = true)
